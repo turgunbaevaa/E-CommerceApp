@@ -9,23 +9,30 @@
 /* Begin PBXBuildFile section */
 		A168392E2B650218009A916D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168392D2B650218009A916D /* AppDelegate.swift */; };
 		A16839302B650218009A916D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168392F2B650218009A916D /* SceneDelegate.swift */; };
-		A16839322B650218009A916D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16839312B650218009A916D /* ViewController.swift */; };
-		A16839352B650218009A916D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16839332B650218009A916D /* Main.storyboard */; };
 		A16839382B650218009A916D /* E_CommerceApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A16839362B650218009A916D /* E_CommerceApp.xcdatamodeld */; };
 		A168393A2B65021A009A916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16839392B65021A009A916D /* Assets.xcassets */; };
 		A168393D2B65021A009A916D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A168393B2B65021A009A916D /* LaunchScreen.storyboard */; };
+		A16839482B6502F4009A916D /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16839472B6502F4009A916D /* ShopController.swift */; };
+		A16839502B6559EB009A916D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168394F2B6559EB009A916D /* CustomTableViewCell.swift */; };
+		A16839532B655A60009A916D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A16839522B655A60009A916D /* SnapKit */; };
+		A16839562B655AA2009A916D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16839552B655AA2009A916D /* UIColor.swift */; };
+		A16839582B655D77009A916D /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16839572B655D77009A916D /* CategoryList.swift */; };
+		A168395A2B655DF1009A916D /* ProductDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16839592B655DF1009A916D /* ProductDetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A168392A2B650218009A916D /* E-CommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-CommerceApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A168392D2B650218009A916D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A168392F2B650218009A916D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A16839312B650218009A916D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A16839342B650218009A916D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A16839372B650218009A916D /* E_CommerceApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = E_CommerceApp.xcdatamodel; sourceTree = "<group>"; };
 		A16839392B65021A009A916D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A168393C2B65021A009A916D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A168393E2B65021A009A916D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A16839472B6502F4009A916D /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
+		A168394F2B6559EB009A916D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		A16839552B655AA2009A916D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A16839572B655D77009A916D /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		A16839592B655DF1009A916D /* ProductDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16839532B655A60009A916D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +66,67 @@
 		A168392C2B650218009A916D /* E-CommerceApp */ = {
 			isa = PBXGroup;
 			children = (
-				A168392D2B650218009A916D /* AppDelegate.swift */,
-				A168392F2B650218009A916D /* SceneDelegate.swift */,
-				A16839312B650218009A916D /* ViewController.swift */,
-				A16839332B650218009A916D /* Main.storyboard */,
-				A16839392B65021A009A916D /* Assets.xcassets */,
-				A168393B2B65021A009A916D /* LaunchScreen.storyboard */,
+				A16839542B655A83009A916D /* extensions */,
+				A168394E2B6559D5009A916D /* helper */,
+				A16839492B6558CC009A916D /* model */,
+				A16839462B6502A1009A916D /* recources */,
+				A16839452B650295009A916D /* common */,
+				A16839442B650283009A916D /* delegate */,
 				A168393E2B65021A009A916D /* Info.plist */,
 				A16839362B650218009A916D /* E_CommerceApp.xcdatamodeld */,
 			);
 			path = "E-CommerceApp";
+			sourceTree = "<group>";
+		};
+		A16839442B650283009A916D /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				A168392F2B650218009A916D /* SceneDelegate.swift */,
+				A168392D2B650218009A916D /* AppDelegate.swift */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
+		A16839452B650295009A916D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				A16839472B6502F4009A916D /* ShopController.swift */,
+				A16839592B655DF1009A916D /* ProductDetailsController.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		A16839462B6502A1009A916D /* recources */ = {
+			isa = PBXGroup;
+			children = (
+				A16839392B65021A009A916D /* Assets.xcassets */,
+				A168393B2B65021A009A916D /* LaunchScreen.storyboard */,
+			);
+			path = recources;
+			sourceTree = "<group>";
+		};
+		A16839492B6558CC009A916D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A16839572B655D77009A916D /* CategoryList.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A168394E2B6559D5009A916D /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				A168394F2B6559EB009A916D /* CustomTableViewCell.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		A16839542B655A83009A916D /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A16839552B655AA2009A916D /* UIColor.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +145,9 @@
 			dependencies = (
 			);
 			name = "E-CommerceApp";
+			packageProductDependencies = (
+				A16839522B655A60009A916D /* SnapKit */,
+			);
 			productName = "E-CommerceApp";
 			productReference = A168392A2B650218009A916D /* E-CommerceApp.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +176,9 @@
 				Base,
 			);
 			mainGroup = A16839212B650218009A916D;
+			packageReferences = (
+				A16839512B655A60009A916D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = A168392B2B650218009A916D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +195,6 @@
 			files = (
 				A168393D2B65021A009A916D /* LaunchScreen.storyboard in Resources */,
 				A168393A2B65021A009A916D /* Assets.xcassets in Resources */,
-				A16839352B650218009A916D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +205,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16839322B650218009A916D /* ViewController.swift in Sources */,
 				A168392E2B650218009A916D /* AppDelegate.swift in Sources */,
 				A16839382B650218009A916D /* E_CommerceApp.xcdatamodeld in Sources */,
+				A16839502B6559EB009A916D /* CustomTableViewCell.swift in Sources */,
 				A16839302B650218009A916D /* SceneDelegate.swift in Sources */,
+				A168395A2B655DF1009A916D /* ProductDetailsController.swift in Sources */,
+				A16839562B655AA2009A916D /* UIColor.swift in Sources */,
+				A16839482B6502F4009A916D /* ShopController.swift in Sources */,
+				A16839582B655D77009A916D /* CategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A16839332B650218009A916D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A16839342B650218009A916D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A168393B2B65021A009A916D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -301,7 +361,6 @@
 				INFOPLIST_FILE = "E-CommerceApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,7 +388,6 @@
 				INFOPLIST_FILE = "E-CommerceApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -367,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A16839512B655A60009A916D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A16839522B655A60009A916D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A16839512B655A60009A916D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A16839362B650218009A916D /* E_CommerceApp.xcdatamodeld */ = {

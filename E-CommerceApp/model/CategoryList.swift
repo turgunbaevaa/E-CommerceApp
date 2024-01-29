@@ -8,7 +8,8 @@
 import Foundation
 
 struct CategoryList {
-    var image: String
-    var categoryName: String
-    var numberOfItems: String
+    let image: String
+    let mainTitle: String
+    let itemTitle: String
+    let price: String
 }

@@ -26,17 +26,20 @@ class MakerView {
     }
     
     func makeButton(setTitle: String,
-                     for state: UIControl.State,
-                     backgroundColor: UIColor,
-                     tintColor: UIColor,
-                     cornerRadius: CGFloat = 10) -> UIButton {
+                    setImage: UIImage? = nil,
+                    for state: UIControl.State,
+                    backgroundColor: UIColor,
+                    tintColor: UIColor,
+                    cornerRadius: CGFloat = 10) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(setTitle, for: state)
+        button.setImage(setImage, for: .normal)
         button.backgroundColor = backgroundColor
         button.tintColor = tintColor
         button.layer.cornerRadius = cornerRadius
         return button
     }
+
     
     func makeLabel(textAlignment: NSTextAlignment = .left,
                     textColor: UIColor,
@@ -54,11 +57,11 @@ class MakerView {
                     clipsToBounds: Bool = true,
                     cornerRadius: CGFloat,
                     imageName: String) -> UIImageView {
-        let imageView = UIImageView()
-        imageView.contentMode =  contentMode
-        imageView.clipsToBounds = clipsToBounds
-        imageView.layer.cornerRadius = cornerRadius
-        imageView.image = UIImage(named: imageName)
-        return imageView
+        let img = UIImageView()
+        img.contentMode =  contentMode
+        img.clipsToBounds = clipsToBounds
+        img.layer.cornerRadius = cornerRadius
+        img.image = UIImage(named: imageName)
+        return img
     }
 }

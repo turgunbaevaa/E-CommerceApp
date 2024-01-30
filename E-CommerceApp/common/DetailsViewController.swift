@@ -12,7 +12,7 @@ class DetailsViewController: UIViewController{
     
     var categoryDetails: CategoryList?
     
-    private var imageCell = MakerView.shared.makeImage(cornerRadius: 0, imageName: "")
+    private var mainImg = MakerView.shared.makeImage(cornerRadius: 0, imageName: "")
     
     private var titleLabel = MakerView.shared.makeLabel(textColor: UIColor.black, font: UIFont.systemFont(ofSize: 22, weight: .medium), text: "")
     
@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController{
     
     private var productDetailsLabel = MakerView.shared.makeLabel(textColor: UIColor.black, font: UIFont.systemFont(ofSize: 20, weight: .medium), text: "Product Details")
     
-    private var stackView = MakerView.shared.makeStackView(axis: .vertical, backgroundColor: UIColor.clear)
+    private var labelsStackView = MakerView.shared.makeStackView(axis: .vertical, backgroundColor: UIColor.clear)
     
     private lazy var roomLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Room Type")
     
@@ -36,19 +36,44 @@ class DetailsViewController: UIViewController{
     
     private lazy var weightLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Weight")
     
-    private var rightStackView = MakerView.shared.makeStackView(axis: .vertical, backgroundColor: UIColor.clear)
+    private var titlesStackView = MakerView.shared.makeStackView(axis: .vertical, backgroundColor: UIColor.clear)
     
-    private lazy var officeLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Office, Living Room")
+    private lazy var roomsTitle = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Office, Living Room")
     
-    private lazy var yellowLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Yellow")
+    private lazy var colorsTitle = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Yellow")
     
-    private lazy var textilLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Textile, Velvet, Cotton")
+    private lazy var materialsTitle = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "Textile, Velvet, Cotton")
     
-    private lazy var rightDimensionsLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "25.6 x 31.5 x 37.4 inches")
+    private lazy var dimensionsTitle = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "25.6 x 31.5 x 37.4 inches")
     
-    private lazy var weighRightLabel = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "20.3 Pounds")
+    private lazy var weightsTitle = MakerView.shared.makeLabel(textColor: UIColor.darkGray, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "20.3 Pounds")
     
     private lazy var buyButton = MakerView.shared.makeButton(setTitle: "Buy", for: .normal, backgroundColor: UIColor.link, tintColor: UIColor.white)
+    
+    private lazy var numberOfItemsStackView = MakerView.shared.makeStackView(axis: .horizontal, backgroundColor: UIColor.white)
+    
+    private lazy var plusItemButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        button.tintColor = UIColor.black
+        button.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var itemCount = 1
+    
+    private lazy var itemCountLabel: UILabel = {
+        let label = MakerView.shared.makeLabel(textColor: UIColor.black, font: UIFont.systemFont(ofSize: 15, weight: .regular), text: "\(itemCount)")
+        return label
+    }()
+    
+    private lazy var minusItemButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "minus.circle"), for: .normal)
+        button.tintColor = UIColor.black
+        button.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,10 +91,12 @@ class DetailsViewController: UIViewController{
         setupStarStackView()
         setupPriceLabel()
         setupViews()
-        setupProduct()
-        setupStackView()
-        setupRightStackView()
+        setupNumberOfItemsStackView()
+        setupProductDetailsLabel()
+        setupLabelsStackView()
+        setupTitlesStackView()
         setupBuyBtn()
+        
     }
     
     private func setupStarStackView() {
@@ -89,44 +116,44 @@ class DetailsViewController: UIViewController{
     private func setupBuyBtn() {
         view.addSubview(buyButton)
         buyButton.snp.makeConstraints { make in
-            make.top.equalTo(rightStackView.snp.bottom).offset(39)
+            make.top.equalTo(titlesStackView.snp.bottom).offset(39)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-30)
         }
     }
     
-    private func setupRightStackView() {
-        view.addSubview(rightStackView)
-        rightStackView.snp.makeConstraints { make in
+    private func setupTitlesStackView() {
+        view.addSubview(titlesStackView)
+        titlesStackView.snp.makeConstraints { make in
             make.top.equalTo(productDetailsLabel.snp.bottom).offset(9)
-            make.leading.equalTo(stackView.snp.trailing).offset(18)
+            make.leading.equalTo(labelsStackView.snp.trailing).offset(18)
             make.height.equalTo(120)
         }
         
-        rightStackView.addArrangedSubview(officeLabel)
-        rightStackView.addArrangedSubview(yellowLabel)
-        rightStackView.addArrangedSubview(textilLabel)
-        rightStackView.addArrangedSubview(rightDimensionsLabel)
-        rightStackView.addArrangedSubview(weighRightLabel)
+        titlesStackView.addArrangedSubview(roomsTitle)
+        titlesStackView.addArrangedSubview(colorsTitle)
+        titlesStackView.addArrangedSubview(materialsTitle)
+        titlesStackView.addArrangedSubview(dimensionsTitle)
+        titlesStackView.addArrangedSubview(weightsTitle)
     }
     
-    private func setupStackView() {
-        view.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
+    private func setupLabelsStackView() {
+        view.addSubview(labelsStackView)
+        labelsStackView.snp.makeConstraints { make in
             make.top.equalTo(productDetailsLabel.snp.bottom).offset(9)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(120)
         }
         
-        stackView.addArrangedSubview(roomLabel)
-        stackView.addArrangedSubview(colorLabel)
-        stackView.addArrangedSubview(materialLabel)
-        stackView.addArrangedSubview(dimensionsLabel)
-        stackView.addArrangedSubview(weightLabel)
+        labelsStackView.addArrangedSubview(roomLabel)
+        labelsStackView.addArrangedSubview(colorLabel)
+        labelsStackView.addArrangedSubview(materialLabel)
+        labelsStackView.addArrangedSubview(dimensionsLabel)
+        labelsStackView.addArrangedSubview(weightLabel)
     }
     
-    private func setupProduct() {
+    private func setupProductDetailsLabel() {
         view.addSubview(productDetailsLabel)
         productDetailsLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLabel.snp.bottom).offset(27)
@@ -136,25 +163,25 @@ class DetailsViewController: UIViewController{
     }
     
     private func setupViews() {
-        imageCell.image = UIImage(named: categoryDetails?.image ?? "")
+        mainImg.image = UIImage(named: categoryDetails?.image ?? "")
         titleLabel.text = categoryDetails?.mainTitle ?? ""
         itemLabel.text = categoryDetails?.itemTitle ?? ""
         priceLabel.text = categoryDetails?.price ?? ""
     }
     
     private func setupImage() {
-        view.addSubview(imageCell)
-        imageCell.snp.makeConstraints { make in
+        view.addSubview(mainImg)
+        mainImg.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(400)
+            make.height.equalTo(370)
         }
     }
     
     private func setupTitleLabel() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageCell.snp.bottom).offset(10)
+            make.top.equalTo(mainImg.snp.bottom).offset(10)
             make.horizontalEdges.equalToSuperview().offset(16)
             make.height.equalTo(36)
         }
@@ -175,6 +202,49 @@ class DetailsViewController: UIViewController{
             make.top.equalTo(starStackView.snp.bottom).offset(10)
             make.leading.equalTo(16)
             make.height.equalTo(30)
+        }
+    }
+    
+    private func setupNumberOfItemsStackView() {
+        view.addSubview(numberOfItemsStackView)
+        numberOfItemsStackView.distribution = .fillEqually  // Set distribution to fill equally
+        numberOfItemsStackView.spacing = 3
+        
+        numberOfItemsStackView.snp.makeConstraints { make in
+            make.top.equalTo(starStackView.snp.bottom).offset(15)
+            make.trailing.equalToSuperview().offset(-16)
+            make.centerY.equalTo(priceLabel.snp.centerY)
+            make.height.equalTo(40)
+            make.width.equalTo(100)
+        }
+        
+        let buttonWidth = 40
+        minusItemButton.snp.makeConstraints { make in
+            make.width.equalTo(buttonWidth)
+        }
+        itemCountLabel.snp.makeConstraints { make in
+            make.width.equalTo(buttonWidth)
+        }
+        
+        numberOfItemsStackView.addArrangedSubview(minusItemButton)
+        numberOfItemsStackView.addArrangedSubview(itemCountLabel)
+        numberOfItemsStackView.addArrangedSubview(plusItemButton)
+        
+        plusItemButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        minusItemButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func plusButtonTapped() {
+        itemCount += 1
+        itemCountLabel.text = "\(itemCount)"
+    }
+    
+    @objc private func minusButtonTapped() {
+        if itemCount == 1 {
+            return
+        } else {
+            itemCount -= 1
+            itemCountLabel.text = "\(itemCount)"
         }
     }
 }
